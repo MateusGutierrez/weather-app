@@ -1,7 +1,9 @@
+import Dashboard from "./components/dashboard";
+
 export function App() {
   return (
     <section>
-      <h1>teste </h1>
+      <Dashboard/>
     </section>
   );
 }
