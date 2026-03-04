@@ -5,6 +5,7 @@ import "./index.css"
 import App from "./app.tsx"
 import { SidePanelProvider } from "./providers/side-panel-provider.tsx"
 import { ThemeProvider } from "./providers/theme-provider.tsx"
+import { TooltipProvider } from "./components/ui/tooltip.tsx"
 
 const queryClient = new QueryClient()
 
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
       <SidePanelProvider>
-        <App />
+        <TooltipProvider>
+          <App />
+        </TooltipProvider>
       </SidePanelProvider>
       </ThemeProvider>
     </QueryClientProvider>

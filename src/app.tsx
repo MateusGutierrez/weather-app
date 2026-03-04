@@ -1,8 +1,10 @@
 export function App() {
 
-return (<>
-        <h1>testt</h1>
-</>);
+return (
+        <section>
+                <h1>teste </h1>
+        </section>
+);
 }
 
 export default App;
