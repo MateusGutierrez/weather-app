@@ -1,4 +1,4 @@
-import CardWeather from '../cards/Cards';
+import CardWeather from '../cards/card-weather';
 
 export default function DailyForecastSkeleton() {
   return (
