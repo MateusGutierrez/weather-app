@@ -1,4 +1,4 @@
-import z from "zod"
+import z from 'zod';
 
 export const AirPollutionSchema = z.object({
   coord: z.object({
@@ -23,4 +23,4 @@ export const AirPollutionSchema = z.object({
       }),
     })
   ),
-})
+});

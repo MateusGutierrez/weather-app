@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const weatherResponseSchema = z.object({
   coord: z.object({
@@ -38,7 +38,7 @@ export const weatherResponseSchema = z.object({
 
   rain: z
     .object({
-      "1h": z.number().optional(),
+      '1h': z.number().optional(),
     })
     .optional(),
 

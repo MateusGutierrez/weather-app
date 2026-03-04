@@ -1,21 +1,21 @@
-import CardWeather from "../cards/Cards";
+import CardWeather from '../cards/Cards';
 
 export default function AdditionalInfoSkeleton() {
   return (
     <CardWeather title="Additional Weather Info">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+      <div className="grid flex-1 grid-cols-1 gap-8 md:grid-cols-2">
         {Array.from({ length: 6 }).map(() => (
           <div className="flex justify-between">
             <div className="flex gap-4">
-              <div className="size-8 animate-pulse bg-foreground/25 dark:bg-accent rounded-full" />
-              <div className="animate-pulse bg-foreground/25 dark:bg-accent h-fit rounded-full">
+              <div className="bg-foreground/25 dark:bg-accent size-8 animate-pulse rounded-full" />
+              <div className="bg-foreground/25 dark:bg-accent h-fit animate-pulse rounded-full">
                 <p className="invisible">Pressure (hPa)</p>
               </div>
             </div>
-            <div className="animate-pulse rounded-full size-8 bg-foreground/25 dark:bg-accent" />
+            <div className="bg-foreground/25 dark:bg-accent size-8 animate-pulse rounded-full" />
           </div>
         ))}
       </div>
     </CardWeather>
-  )
+  );
 }

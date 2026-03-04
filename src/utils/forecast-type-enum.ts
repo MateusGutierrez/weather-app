@@ -1,4 +1,4 @@
 export enum ForecastTypeEnum {
-  HOURLY = "hourly",
-  DAILY = "daily",
+  HOURLY = 'hourly',
+  DAILY = 'daily',
 }

@@ -1,13 +1,13 @@
-import { createContext, useContext, useState, type Dispatch, type SetStateAction } from "react";
+import { createContext, useContext, useState, type Dispatch, type SetStateAction } from 'react';
 
 type SidePanelContextType = {
   isSidePanelOpen: boolean;
-  setIsSidePanelOpen: Dispatch<SetStateAction<boolean>>
+  setIsSidePanelOpen: Dispatch<SetStateAction<boolean>>;
 };
-const initialState: SidePanelContextType ={
-    isSidePanelOpen: false,
-    setIsSidePanelOpen: () => {}
-}
+const initialState: SidePanelContextType = {
+  isSidePanelOpen: false,
+  setIsSidePanelOpen: () => {},
+};
 
 export const SidePanelContext = createContext<SidePanelContextType>(initialState);
 
@@ -18,9 +18,9 @@ export const SidePanelProvider = ({ children }: { children: React.ReactNode }) =
       {children}
     </SidePanelContext.Provider>
   );
-}
+};
 export const useSidePanel = () => {
-  const context = useContext(SidePanelContext)
-  if (!context) throw new Error("useSidePanel must be used within a SidePanelProvider")
-  return context
-}
+  const context = useContext(SidePanelContext);
+  if (!context) throw new Error('useSidePanel must be used within a SidePanelProvider');
+  return context;
+};

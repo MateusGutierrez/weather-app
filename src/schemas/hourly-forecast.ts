@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 /* ----------------- Shared ----------------- */
 
@@ -40,8 +40,8 @@ const windSchema = z.object({
 
 const rainSchema = z
   .object({
-    "1h": z.number().optional(),
-    "3h": z.number().optional(),
+    '1h': z.number().optional(),
+    '3h': z.number().optional(),
   })
   .optional();
 

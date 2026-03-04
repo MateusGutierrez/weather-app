@@ -1,4 +1,4 @@
-import z from "zod"
+import z from 'zod';
 
 export const GeocodeSchema = z.array(
   z.object({
@@ -9,4 +9,4 @@ export const GeocodeSchema = z.array(
     country: z.string(),
     state: z.string().optional(),
   })
-)
+);

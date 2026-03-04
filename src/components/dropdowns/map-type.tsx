@@ -4,32 +4,25 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { MapTypeEnum } from "@/utils/map-type-enum"
+} from '@/components/ui/select';
+import { MapTypeEnum } from '@/utils/map-type-enum';
 
-export default function MapTypeDropdown({
-  onChange,
-}: {
-  onChange: (type: MapTypeEnum) => void
-}) {
+export default function MapTypeDropdown({ onChange }: { onChange: (type: MapTypeEnum) => void }) {
   return (
     <Select
       defaultValue={MapTypeEnum.Precipitation}
-      onValueChange={(value) => onChange(value as MapTypeEnum)}
+      onValueChange={value => onChange(value as MapTypeEnum)}
     >
       <SelectTrigger className="w-45">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent className="z-1001">
-        {Object.keys(MapTypeEnum).map((type) => (
-          <SelectItem
-            value={MapTypeEnum[type as keyof typeof MapTypeEnum]}
-            key={type}
-          >
+        {Object.keys(MapTypeEnum).map(type => (
+          <SelectItem value={MapTypeEnum[type as keyof typeof MapTypeEnum]} key={type}>
             {type}
           </SelectItem>
         ))}
       </SelectContent>
     </Select>
-  )
+  );
 }
