@@ -6,7 +6,7 @@ export default function CurrentWeatherSkeleton() {
       <div className="flex h-full flex-col items-center justify-around gap-4 md:gap-0">
         <div className="flex flex-col gap-2">
           <span className="bg-foreground/25 dark:bg-accent animate-pulse rounded-full">
-            <h1 className="invisible text-center text-6xl font-semibold">199.99°F</h1>
+            <h1 className="invisible text-center text-6xl font-semibold">30°C</h1>
           </span>
           <div className="flex items-center justify-center gap-2">
             <span className="bg-foreground/25 dark:bg-accent animate-pulse rounded-full">
@@ -29,7 +29,7 @@ export default function CurrentWeatherSkeleton() {
           <div className="flex flex-col gap-2">
             <span className="text-xl text-gray-500">Feels Like</span>
             <span className="bg-foreground/25 dark:bg-accent animate-pulse rounded-full">
-              <p className="invisible text-xl">199.99°F</p>
+              <p className="invisible text-xl">30°C</p>
             </span>
           </div>
           <div className="flex flex-col gap-2">
@@ -41,7 +41,7 @@ export default function CurrentWeatherSkeleton() {
           <div className="flex flex-col gap-2">
             <span className="text-xl text-gray-500">Wind</span>
             <span className="bg-foreground/25 dark:bg-accent animate-pulse rounded-full">
-              <p className="invisible text-xl">25.55 mph</p>
+              <p className="invisible text-xl">25.55 km/h</p>
             </span>
           </div>
         </div>

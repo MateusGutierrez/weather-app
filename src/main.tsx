@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './index.css';
 import App from './app.tsx';
-import { SidePanelProvider } from './providers/side-panel-provider.tsx';
 import { ThemeProvider } from './providers/theme-provider.tsx';
 import { TooltipProvider } from './components/ui/tooltip.tsx';
 
@@ -13,11 +12,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <SidePanelProvider>
-          <TooltipProvider>
-            <App />
-          </TooltipProvider>
-        </SidePanelProvider>
+        <TooltipProvider>
+          <App />
+        </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </StrictMode>

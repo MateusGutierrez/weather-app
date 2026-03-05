@@ -2,6 +2,8 @@ import LightDarkToggle from './light-dark-toggle';
 import LocationDropdown from './dropdowns/location';
 import MapTypeDropdown from './dropdowns/map-type';
 import type { MapTypeEnum } from '@/utils/map-type-enum';
+import { SidebarTrigger } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
 
 type Props = {
   selectedLocation: string;
@@ -18,8 +20,10 @@ export default function DesktopHeader({
     <header className="flex flex-col gap-4 pb-8 2xl:flex-row 2xl:items-center 2xl:justify-between 2xl:gap-0">
       <div className="flex items-center justify-between">
         <h1 className="text-4xl! font-bold!">Weather Dashboard</h1>
-        <div className="hidden lg:block 2xl:hidden">
+        <div className="hidden items-center gap-2 lg:flex 2xl:hidden">
           <LightDarkToggle />
+          <Separator orientation="vertical" className="mx-1 h-6" />
+          <SidebarTrigger />
         </div>
       </div>
       <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:gap-0 2xl:gap-8">
@@ -32,8 +36,10 @@ export default function DesktopHeader({
           <MapTypeDropdown onChange={setMapType} />
         </div>
       </div>
-      <div className="hidden 2xl:block">
+      <div className="hidden items-center gap-2 2xl:flex">
         <LightDarkToggle />
+        <Separator orientation="vertical" className="mx-1 h-6" />
+        <SidebarTrigger />
       </div>
     </header>
   );

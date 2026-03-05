@@ -11,7 +11,7 @@ export default function HourlyForecastSkeleton() {
             </div>
             <div className="bg-foreground/25 dark:bg-accent size-8 animate-pulse rounded-full" />
             <div className="bg-foreground/25 dark:bg-accent h-fit animate-pulse rounded-full">
-              <p className="invisible whitespace-nowrap">100°F</p>
+              <p className="invisible whitespace-nowrap">28°C</p>
             </div>
           </div>
         ))}

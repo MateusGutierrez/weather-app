@@ -10,6 +10,7 @@ import {
   pollutantKeyMapping,
   pollutantNameMapping,
   type AirQualityLevel,
+  type Range as PollutantRange,
 } from '@/utils/air-polution';
 import { Slider } from './ui/slider';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
@@ -54,7 +55,7 @@ export default function AirPollution({ lat, lon }: { lat: number; lon: number })
           }
 
           const currentLevel = getAirQualityLevel(pollutant, value);
-          const maxValue = Math.max(...Object.values(ranges).map((r: Range) => r.max || 0));
+          const maxValue = Math.max(...Object.values(ranges).map((r: PollutantRange) => r.max || 0));
           const normalizedValue = Math.min(value, maxValue);
 
           return (
@@ -117,7 +118,7 @@ export default function AirPollution({ lat, lon }: { lat: number; lon: number })
                   <span>0</span>
                   <span>{maxValue}</span>
                 </div>
-                <div className="flex gap-1">
+                <div className="flex flex-wrap gap-1">
                   {Object.entries(ranges).map(([level]) => (
                     <span
                       key={level}

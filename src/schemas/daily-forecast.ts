@@ -61,7 +61,7 @@ const citySchema = z.object({
   id: z.number(),
   name: z.string(),
   coord: coordSchema,
-  country: z.string(),
+  country: z.string().optional(),
   population: z.number(),
   timezone: z.number(),
 });

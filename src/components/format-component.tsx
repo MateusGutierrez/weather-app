@@ -1,45 +1,65 @@
-import { timeOptions } from '@/utils/time-options';
-import { ArrowUp, Cloud, Gauge, Sparkle, Sunrise, Sunset, Wind } from 'lucide-react';
+import type { getWeather } from '@/api';
+import { ArrowUp, Cloud, Gauge, Sunrise, Sunset, Wind } from 'lucide-react';
 
-export function FormatComponent({ value, number }: { value: string; number: number }) {
-  if (value === 'sunrise' || value === 'sunset') {
-    return new Date(number * 1000).toLocaleTimeString(undefined, timeOptions);
-  }
-  if (value === 'wind_deg') {
-    return <ArrowUp className="size-8" style={{ transform: `rotate(${number}deg)` }} />;
-  }
-  return number;
+export function FormatComponent({
+  format,
+  number,
+}: {
+  format?: "time" | "direction"
+  number: number
+}) {
+  if (format === "time")
+    return new Date(number * 1000).toLocaleTimeString(undefined, {
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    })
+
+  if (format === "direction")
+    return (
+      <ArrowUp
+        className="size-8"
+        style={{ transform: `rotate(${number}deg)` }}
+      />
+    )
+
+  return number
 }
+type WeatherData = Awaited<ReturnType<typeof getWeather>>
 
-export const rows = [
+type Row = {
+  label: string
+  getValue: (data: WeatherData) => number
+  Icon: React.ComponentType<{ className?: string }>
+  format?: "time" | "direction"
+}
+export const rows: Row[] = [
   {
-    label: 'Cloudiness (%)',
-    value: 'clouds',
+    label: "Cloudiness (%)",
+    getValue: (d) => d.clouds.all,
     Icon: Cloud,
   },
   {
-    label: 'UV Index',
-    value: 'uvi',
-    Icon: Sparkle,
-  },
-  {
-    label: 'Wind Direction',
-    value: 'wind_deg',
+    label: "Wind Direction",
+    getValue: (d) => d.wind.deg,
     Icon: Wind,
+    format: "direction",
   },
   {
-    label: 'Pressure (hPa)',
-    value: 'pressure',
+    label: "Pressure (hPa)",
+    getValue: (d) => d.main.pressure,
     Icon: Gauge,
   },
   {
-    label: 'Sunrise',
-    value: 'sunrise',
+    label: "Sunrise",
+    getValue: (d) => d.sys.sunrise,
     Icon: Sunrise,
+    format: "time",
   },
   {
-    label: 'Sunset',
-    value: 'sunset',
+    label: "Sunset",
+    getValue: (d) => d.sys.sunset,
     Icon: Sunset,
+    format: "time",
   },
 ] as const;
